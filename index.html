@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>일정 관리 앱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>일정 관리</h1>
+        <div class="month-control">
+          <button id="prevMonth" aria-label="이전 달">◀</button>
+          <div id="currentMonth" class="month-label"></div>
+          <button id="nextMonth" aria-label="다음 달">▶</button>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="calendar-section">
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- JS에서 렌더링 -->
+          </div>
+        </section>
+
+        <section class="sidebar">
+          <div class="selected-date" id="selectedDateLabel">날짜를 선택하세요</div>
+
+          <form id="eventForm" class="event-form">
+            <input
+              type="text"
+              id="eventTitle"
+              placeholder="일정 제목"
+              required
+            />
+            <textarea
+              id="eventMemo"
+              placeholder="메모 (선택)"
+              rows="3"
+            ></textarea>
+            <div class="time-row">
+              <input type="time" id="eventStart" />
+              <span>~</span>
+              <input type="time" id="eventEnd" />
+            </div>
+            <button type="submit">일정 추가</button>
+          </form>
+
+          <div class="event-list-wrapper">
+            <h2>일정 목록</h2>
+            <ul id="eventList" class="event-list">
+              <!-- JS에서 렌더링 -->
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="eventItemTemplate">
+      <li class="event-item">
+        <div class="event-main">
+          <div class="event-title"></div>
+          <div class="event-time-memo"></div>
+        </div>
+        <div class="event-actions">
+          <button class="edit-btn">수정</button>
+          <button class="delete-btn">삭제</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
